@@ -1,0 +1,141 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: 'Courier New', monospace;
+  color: #f0f0f0;
+  background: #0d0d0d;
+  overflow-x: hidden;
+}
+
+.glitch-bg {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: url('https://media.giphy.com/media/oEI9uBYSzLpBK/giphy.gif') center/cover;
+  opacity: 0.05;
+  z-index: -1;
+}
+
+header.hero {
+  text-align: center;
+  padding: 80px 20px 20px;
+}
+
+h1.glitch {
+  font-size: 3rem;
+  color: #fff;
+  position: relative;
+  display: inline-block;
+}
+h1.glitch::before,
+h1.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+h1.glitch::before {
+  color: #f0f;
+  animation: glitch 1s infinite linear alternate-reverse;
+}
+h1.glitch::after {
+  color: #0ff;
+  animation: glitch 1s infinite linear alternate;
+}
+
+@keyframes glitch {
+  0% { transform: translate(0, 0); opacity: 1; }
+  20% { transform: translate(-2px, 2px); opacity: 0.8; }
+  40% { transform: translate(2px, -2px); opacity: 0.6; }
+  60% { transform: translate(-2px, 2px); opacity: 0.8; }
+  80% { transform: translate(2px, 2px); opacity: 0.6; }
+  100% { transform: translate(0, 0); opacity: 1; }
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  margin-top: 10px;
+  color: #aaa;
+}
+
+.nav {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  background: #1a1a1a;
+  padding: 12px 0;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.nav a {
+  color: #0ff;
+  text-decoration: none;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+.nav a:hover {
+  color: #f0f;
+}
+
+main {
+  padding: 40px 20px;
+}
+
+section {
+  max-width: 800px;
+  margin: 60px auto;
+}
+section h2 {
+  border-bottom: 2px solid #0ff;
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+  font-size: 1.8rem;
+}
+section p, section ul {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+section ul {
+  list-style: square;
+  padding-left: 20px;
+}
+
+.project-category {
+  background: #111;
+  padding: 20px;
+  margin-bottom: 30px;
+  border-left: 4px solid #0ff;
+  box-shadow: 0 0 10px rgba(0,255,255,0.1);
+  transition: transform 0.2s;
+}
+.project-category:hover {
+  transform: scale(1.01);
+}
+
+.project-category h3 {
+  color: #0ff;
+  margin-bottom: 10px;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9rem;
+  background: #111;
+  border-top: 1px solid #222;
+}
+
+.flicker {
+  animation: flickerAnim 0.15s steps(3) infinite;
+}
+
+@keyframes flickerAnim {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.2; }
+}
